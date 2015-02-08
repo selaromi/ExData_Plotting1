@@ -22,18 +22,20 @@ plot4 <- function() {
                 dir.create("generated_charts")
         }
         
+
         png(
                 "generated_charts/plot4.png",
                 width     = 480,
                 height    = 480,
+                bg        = "transparent",
                 units     = "px"
-        )       
+        )     
         par(mfcol=c(2,2))
         #TL
         with(subsetHpc,plot(datetime,Global_active_power,type="l",ylab = "Global Active Power",xlab = "",main = ""))
         #BL
         with(subsetHpc,{
-                plot(datetime,Sub_metering_1,type="l",ylab = "Energy sub metering",xlab = "",main = "")
+                plot(datetime,Sub_metering_1,type="l",ylab = "Energy sub metering",xlab = "",main = "",)
                 lines(datetime,Sub_metering_2, col="red")
                 lines(datetime,Sub_metering_3, col="blue")
                 legend("topright", col =c("black","red","blue"), legend = c("Sub_metering_1", "Sub_metering_2","Sub_metering_3"),bty="n",lty=1)

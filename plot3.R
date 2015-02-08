@@ -22,10 +22,12 @@ plot3 <- function() {
                 dir.create("generated_charts")
         }
         
+        par(bg="transparent")
         png(
                 "generated_charts/plot3.png",
                 width     = 480,
                 height    = 480,
+                bg        = "transparent",
                 units     = "px"
         )       
         with(subsetHpc,{
