@@ -7,7 +7,7 @@ plot4 <- function() {
         fileURL <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
         file <- "data/power_consumption.zip"
         download.file(url = fileURL,destfile = file ,method = "curl")
-        zipFileInfo <- unzip(file, list=TRUE)
+        zipFileInfo <- unzip(file,exdir = "data")
         hpcData <- fread(input = "data/household_power_consumption.txt", header = TRUE, na.strings = c("?"),sep = ";")
         hpcData$Date <- as.Date(strptime(hpcData$Date,"%d/%m/%Y"))
         
